@@ -6,8 +6,7 @@
         compatible = "zmk,keymap";
         default_layer {
             bindings = <
-                &kp KP_N1  &kp KP_N2  // Maps to the first two pins in .overlay
-                // ... add one binding for every pin in the same order
+                &kp A  &kp B
             >;
         };
     };

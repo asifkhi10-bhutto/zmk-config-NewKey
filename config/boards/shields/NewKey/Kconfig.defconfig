@@ -1,0 +1,6 @@
+if SHIELD_NEWKEY
+
+config ZMK_KEYBOARD_NAME
+   default "NewKey"
+
+endif

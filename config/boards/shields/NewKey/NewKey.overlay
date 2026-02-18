@@ -20,15 +20,15 @@
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-direct";
         input-gpios =
-            <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-            <&gpio0 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-            <&gpio1 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+            <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,  /* D0 */
+            <&gpio0 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,  /* D1 */
+            <&gpio1 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  /* D6 */
     };
 
     left_encoder: encoder_left {
         compatible = "alps,ec11";
-        a-gpios = <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        a-gpios = <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; /* D4 */
+        b-gpios = <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; /* D5 */
         steps = <80>;
     };
 
@@ -39,7 +39,7 @@
     };
 };
 
-/* I2C pins required by nRF TWIM */
+/* Required I2C pin configuration for nRF TWIM */
 &pinctrl {
     i2c1_default: i2c1_default {
         group1 {
@@ -49,16 +49,26 @@
     };
 };
 
-/* OLED display */
+/* Enable I2C and attach OLED */
 &i2c1 {
     status = "okay";
     pinctrl-0 = <&i2c1_default>;
     pinctrl-names = "default";
 
     oled: ssd1306@3c {
-        compatible = "zephyr,ssd1306";
+        compatible = "solomon,ssd1306fb-i2c";
         reg = <0x3c>;
+
         width = <128>;
         height = <32>;
+
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <31>;
+
+        inversion-on;
+        com-invdir;
+        segment-remap;
     };
 };

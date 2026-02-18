@@ -47,7 +47,7 @@
     pinctrl-names = "default", "sleep";
 
     oled: ssd1306@3c {
-        compatible = "ssd1306,ssd1306";
+        compatible = "solomon,ssd1306fb"; // This is the correct identifier
         reg = <0x3c>;
         width = <128>;
         height = <32>;

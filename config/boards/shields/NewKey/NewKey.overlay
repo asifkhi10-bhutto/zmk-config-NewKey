@@ -56,21 +56,21 @@
     pinctrl-0 = <&i2c1_default>;
     pinctrl-names = "default";
 
-    oled: ssd1306@3c {
-        compatible = "zephyr,ssd1306fb-i2c";
-        reg = <0x3c>;
-        label = "OLED";
-        status = "okay";
+oled: ssd1306@3c {
+    compatible = "solomon,ssd1306fb-i2c";
+    reg = <0x3c>;
+    label = "OLED";
+    status = "okay";
 
-        width = <128>;
-        height = <32>;
+    width = <128>;
+    height = <32>;
 
-        segment-offset = <0>;
-        page-offset = <0>;
-        display-offset = <0>;
-        multiplex-ratio = <31>;
+    segment-offset = <0>;
+    page-offset = <0>;
+    display-offset = <0>;
+    multiplex-ratio = <31>;
 
-        segment-remap;
-        com-invdir;
-    };
+    segment-remap;
+    com-invdir;
+};
 };

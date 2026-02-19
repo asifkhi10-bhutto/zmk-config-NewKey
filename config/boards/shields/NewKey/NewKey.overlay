@@ -39,21 +39,30 @@
     };
 };
 
-/* I2C0 pin configuration (nice!nano v2 default) */
+/* I2C pin configuration */
 &pinctrl {
-    i2c0_default: i2c0_default {
+    i2c1_default: i2c1_default {
         group1 {
             psels = <NRF_PSEL(TWIM_SDA, 0, 26)>,
                     <NRF_PSEL(TWIM_SCL, 0, 27)>;
         };
     };
+
+    i2c1_sleep: i2c1_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 26)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 27)>;
+            low-power-enable;
+        };
+    };
 };
 
-/* Enable I2C0 + SSD1306 OLED */
-&i2c0 {
+/* Enable I2C + OLED */
+&i2c1 {
     status = "okay";
-    pinctrl-0 = <&i2c0_default>;
-    pinctrl-names = "default";
+    pinctrl-0 = <&i2c1_default>;
+    pinctrl-1 = <&i2c1_sleep>;
+    pinctrl-names = "default", "sleep";
 
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb-i2c";

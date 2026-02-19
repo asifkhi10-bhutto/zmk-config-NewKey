@@ -39,20 +39,20 @@
     };
 };
 
-/* nRF I2C pin configuration */
+/* I2C0 pin configuration (nice!nano v2 default) */
 &pinctrl {
-    i2c1_default: i2c1_default {
+    i2c0_default: i2c0_default {
         group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 1, 13)>,
-                    <NRF_PSEL(TWIM_SCL, 1, 15)>;
+            psels = <NRF_PSEL(TWIM_SDA, 0, 26)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 27)>;
         };
     };
 };
 
-/* Enable I2C + OLED */
-&i2c1 {
+/* Enable I2C0 + SSD1306 OLED */
+&i2c0 {
     status = "okay";
-    pinctrl-0 = <&i2c1_default>;
+    pinctrl-0 = <&i2c0_default>;
     pinctrl-names = "default";
 
     oled: ssd1306@3c {

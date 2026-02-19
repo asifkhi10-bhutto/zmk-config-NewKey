@@ -73,3 +73,9 @@
         height = <32>;
     };
 };
+/ {
+    zephyr,user {
+        lvgl = <0>;
+    };
+};
+

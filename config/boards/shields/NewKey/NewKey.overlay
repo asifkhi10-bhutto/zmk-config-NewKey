@@ -22,7 +22,6 @@
         input-gpios =
             <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
             <&gpio0 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-            <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 
     left_encoder: encoder_left {
@@ -66,7 +65,7 @@
 
 oled: ssd1306@3c {
     compatible = "solomon,ssd1306fb";
-    reg = <0x3D>;
+    reg = <0x3C>;
     status = "okay";
 
     width = <128>;

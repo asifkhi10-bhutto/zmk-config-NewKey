@@ -10,7 +10,7 @@
         bindings = <
            &kp A &kp B &kp C_MUTE
     >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&encoder_cw C_VOL_UP &encoder_ccw C_VOL_DN>;
         };
     };
 };

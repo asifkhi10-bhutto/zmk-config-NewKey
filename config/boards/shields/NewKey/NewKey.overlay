@@ -42,9 +42,9 @@
         /* COLUMNS (SAFE — no I2C conflict) */
         col-gpios =
             <&pro_micro 10 GPIO_ACTIVE_LOW>,
+            <&pro_micro 16 GPIO_ACTIVE_LOW>,
             <&pro_micro 14 GPIO_ACTIVE_LOW>,
-            <&pro_micro 18 GPIO_ACTIVE_LOW>,
-            <&pro_micro 19 GPIO_ACTIVE_LOW>;
+            <&pro_micro 15 GPIO_ACTIVE_LOW>;
     };
 
     /* ---------------- ENCODER ---------------- */

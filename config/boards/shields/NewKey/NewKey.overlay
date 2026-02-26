@@ -2,42 +2,40 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-chosen {
-    zmk,kscan = &kscan0;
-    zmk,matrix_transform = &default_transform;
-    zmk,sensors = <&left_encoder>;
-};
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,matrix_transform = &default_transform;
+        zmk,sensors = <&left_encoder>;
+    };
 
     /* ---------------- MATRIX TRANSFORM ---------------- */
 
-default_transform: keymap_transform {
-    compatible = "zmk,matrix-transform";
-columns = <1>;
-rows = <1>;
-map = <RC(0,0)>;
-
-};
+    default_transform: keymap_transform {
+        compatible = "zmk,matrix-transform";
+        columns = <1>;
+        rows = <1>;
+        map = <RC(0,0)>;
+    };
 
     /* ---------------- MATRIX SCAN ---------------- */
 
-kscan0: kscan {
-    compatible = "zmk,kscan-gpio-matrix";
-    diode-direction = "col2row";
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
 
-    row-gpios =
-        <&gpio0 6  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+        row-gpios =
+            <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 
-    col-gpios =
-        <&gpio0 9 GPIO_ACTIVE_LOW>
-
-};
+        col-gpios =
+            <&gpio0 9 GPIO_ACTIVE_LOW>;
+    };
 
     /* ---------------- ENCODER ---------------- */
 
     left_encoder: encoder_left {
         compatible = "alps,ec11";
-        a-gpios = <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  /* P0.31 */
-        b-gpios = <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  /* P0.29 */
+        a-gpios = <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         steps = <24>;
     };
 

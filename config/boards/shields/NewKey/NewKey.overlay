@@ -63,17 +63,3 @@
     };
 };
 
-/* ---------------- I2C (USE BOARD DEFAULT PINS) ---------------- */
-
-&i2c1 {
-    status = "okay";
-
-    oled: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
-        reg = <0x3C>;
-        status = "okay";
-
-        width = <128>;
-        height = <32>;
-    };
-};

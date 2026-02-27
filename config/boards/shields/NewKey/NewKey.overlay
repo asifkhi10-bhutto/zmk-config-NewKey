@@ -5,6 +5,7 @@
     chosen {
         zmk,kscan = &kscan;
         zmk,physical-layout = &physical_layout;
+        zephyr,display = &ssd1306;
     };
 
     physical_layout: physical_layout {

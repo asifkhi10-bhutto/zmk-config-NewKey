@@ -4,18 +4,18 @@
 / {
 
         macros {
-        calc_macro: calc_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <
-                &kp LGUI &kp R
-                &macro_pause 30
-                &kp C &kp A &kp L &kp C
-                &macro_pause 30
-                &kp ENTER
-            >;
-        };
+    calc_macro: calc_macro {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <
+            &kp LGUI &kp R
+            &macro_wait_time 30
+            &kp C &kp A &kp L &kp C
+            &macro_wait_time 30
+            &kp ENTER
+        >;
     };
+};
 
 
     keymap {

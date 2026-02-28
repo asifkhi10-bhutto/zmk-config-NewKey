@@ -67,11 +67,14 @@
         triggers-per-rotation = <6>;
     };
 
+    buttons {
+    compatible = "zmk,gpio-keys";
+
     encoder_btn: encoder_btn {
-        compatible = "zmk,behavior-gpio-key";
-        gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
+        gpios = <&gpio1 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         label = "ENC_BTN";
         bindings = <&kp C_MUTE>;
+        };
     };
 
 };

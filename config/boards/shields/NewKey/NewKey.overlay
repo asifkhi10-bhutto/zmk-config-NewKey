@@ -74,8 +74,8 @@
     encoder_btn {
         gpios = <&gpio0 2 (GPIO_ACTIVE_LOW)>;
         bindings = <&kp C_MUTE>;
-    };
-};
+    }; 
+}; */
 
 };
 

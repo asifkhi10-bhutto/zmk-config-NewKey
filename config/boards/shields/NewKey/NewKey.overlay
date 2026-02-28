@@ -72,7 +72,7 @@
     compatible = "zmk,gpio-keys";
 
     encoder_btn {
-        gpios = <&gpio1 0 (GPIO_ACTIVE_LOW)>;
+        gpios = <&gpio0 2 (GPIO_ACTIVE_LOW)>;
         bindings = <&kp C_MUTE>;
     };
 };
